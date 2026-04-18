@@ -1,0 +1,109 @@
+<div class="contact-card">
+  <div class="card-header">
+    <div class="header-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+      </svg>
+    </div>
+    <h3 class="header-title">{{ t('contact.title') }}</h3>
+    <div class="eva-badge">
+      <span class="eva-dot"></span>
+      <span class="eva-text">X1E Online</span>
+    </div>
+  </div>
+
+  <div class="card-body">
+    <div class="chat-container" #chatContainer>
+      <div class="chat-messages">
+        @for (message of messages; track message.timestamp) {
+          <div class="message" [class.bot]="message.type === 'bot'" [class.user]="message.type === 'user'">
+            @if (message.type === 'bot') {
+              <div class="avatar bot-avatar">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                  <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                  <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                </svg>
+              </div>
+            }
+            <div class="message-content">
+              @if (message.isTyping) {
+                <div class="typing-indicator">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              } @else {
+                <p>{{ message.text }}</p>
+              }
+            </div>
+            @if (message.type === 'user') {
+              <div class="avatar user-avatar">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </div>
+            }
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- Input Area -->
+    @if (!isComplete && getCurrentStep()) {
+      <div class="input-area">
+        @if (getCurrentStep()?.inputType === 'select') {
+          <div class="options-container">
+            @for (option of getCurrentStep()?.options; track option) {
+              <button class="option-btn" (click)="selectOption(option)">
+                {{ option }}
+              </button>
+            }
+          </div>
+        } @else {
+          <div class="text-input-container">
+            @if (getCurrentStep()?.inputType === 'textarea') {
+              <textarea
+                #inputField
+                [(ngModel)]="currentInput"
+                (keydown.enter)="submitInput()"
+                placeholder="Type your message..."
+                rows="2"
+                class="chat-input textarea"
+              ></textarea>
+            } @else {
+              <input
+                #inputField
+                [type]="getCurrentStep()?.inputType || 'text'"
+                [(ngModel)]="currentInput"
+                (keydown.enter)="submitInput()"
+                [placeholder]="getCurrentStep()?.inputType === 'email' ? 'your@email.com' : getCurrentStep()?.inputType === 'phone' ? '+1 234 567 8900' : 'Type here...'"
+                class="chat-input"
+              />
+            }
+            <button class="send-btn" (click)="submitInput()" [disabled]="!currentInput.trim()">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+            </button>
+          </div>
+        }
+      </div>
+    }
+
+    @if (isComplete) {
+      <div class="complete-actions">
+        <button class="restart-btn" (click)="restartConversation()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="1 4 1 10 7 10"></polyline>
+            <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+          </svg>
+          Start New Conversation
+        </button>
+      </div>
+    }
+  </div>
+</div>

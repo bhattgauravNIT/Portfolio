@@ -1,0 +1,44 @@
+{
+  "nav": {
+    "profile": "Profile",
+    "summary": "Summary",
+    "experience": "Experience",
+    "skills": "Skills",
+    "education": "Education",
+    "projects": "Projects",
+    "certifications": "Certifications",
+    "contact": "Contact"
+  },
+  "theme": {
+    "lightMode": "Light Mode",
+    "darkMode": "Dark Mode"
+  },
+  "language": {
+    "english": "EN",
+    "german": "DE"
+  },
+  "profile": {
+    "title": "Senior Full Stack Developer",
+    "location": "Bengaluru, India"
+  },
+  "summary": {
+    "title": "Professional Summary",
+    "content": "Full Stack Developer with 5.5+ years of experience in Angular, Node.js, Express, MongoDB, JavaScript, and TypeScript. Skilled in developing responsive and accessible UIs, reusable components, and intuitive workflows. Experienced in building scalable back-end systems, secure RESTful APIs, real-time solutions, and microservices. Strong in system design, data structures, algorithms, and full-stack performance optimization."
+  },
+  "experience": {
+    "title": "Experience",
+    "total": "Total",
+    "chartTitle": "Experience Distribution",
+    "fullTime": "Full-time",
+    "present": "Present"
+  },
+  "skills": {
+    "title": "Skills"
+  },
+  "sections": {
+    "education": "Education",
+    "projects": "Projects",
+    "certifications": "Certifications",
+    "contact": "Contact"
+  }
+}

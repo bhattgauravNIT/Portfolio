@@ -1,0 +1,55 @@
+/* You can add global styles to this file, and also import other style files */
+
+:root {
+  /* VS Code Dark Theme Colors (Default) */
+  --bg-primary: #1e1e1e;
+  --bg-secondary: #252526;
+  --bg-tertiary: #2d2d2d;
+  --bg-hover: #37373d;
+  --bg-active: #094771;
+  --accent-blue: #007acc;
+  --accent-blue-light: #0098ff;
+  --accent-blue-dark: #005a9e;
+  --text-primary: #d4d4d4;
+  --text-secondary: #a0a0a0;
+  --text-muted: #6a6a6a;
+  --text-active: #ffffff;
+  --border-color: #3c3c3c;
+  --border-light: #454545;
+  --card-bg: #252526;
+  --card-header-bg: #2d2d2d;
+  --shadow-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Light Mode Theme */
+body.light-mode {
+  --bg-primary: #f3f3f3;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f8f9fa;
+  --bg-hover: #e8e8e8;
+  --bg-active: #cce5ff;
+  --accent-blue: #0066b8;
+  --accent-blue-light: #007acc;
+  --accent-blue-dark: #005a9e;
+  --text-primary: #1e1e1e;
+  --text-secondary: #616161;
+  --text-muted: #9e9e9e;
+  --text-active: #1e1e1e;
+  --border-color: #e0e0e0;
+  --border-light: #d4d4d4;
+  --card-bg: #ffffff;
+  --card-header-bg: #f8f9fa;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', 'Fira Sans', Ubuntu, Oxygen, 'Oxygen Sans', Cantarell, 'Droid Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Lucida Grande', Helvetica, Arial, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}

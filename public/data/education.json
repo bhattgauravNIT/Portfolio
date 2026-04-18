@@ -1,0 +1,85 @@
+[
+  {
+    "id": "graduation",
+    "type": "folder",
+    "name": "Graduation",
+    "icon": "folder",
+    "expanded": false,
+    "files": [
+      {
+        "id": "graduation-details",
+        "name": "degree.md",
+        "icon": "markdown",
+        "content": {
+          "degree": "Bachelor of Technology (B.Tech)",
+          "field": "Electronics & Communication Engineering",
+          "institution": "National Institute of Technology, Srinagar",
+          "location": "Srinagar, Jammu & Kashmir, India",
+          "year": "2016 - 2020",
+          "grade": "7.4 CGPA",
+          "highlights": [
+            "Data Structures & Algorithms",
+            "Database Management Systems",
+            "Operating Systems",
+            "Computer Networks",
+            "Software Engineering"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "12th",
+    "type": "folder",
+    "name": "12th Grade",
+    "icon": "folder",
+    "expanded": false,
+    "files": [
+      {
+        "id": "12th-details",
+        "name": "senior-secondary.md",
+        "icon": "markdown",
+        "content": {
+          "degree": "Senior Secondary (XII)",
+          "field": "Science (PCM)",
+          "institution": "Delhi Public School, Rajnagar",
+          "location": "UttarPradesh, India",
+          "year": "2014 - 2016",
+          "grade": "93.4%",
+          "highlights": [
+            "Physics",
+            "Chemistry",
+            "Mathematics"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "10th",
+    "type": "folder",
+    "name": "10th Grade",
+    "icon": "folder",
+    "expanded": false,
+    "files": [
+      {
+        "id": "10th-details",
+        "name": "secondary.md",
+        "icon": "markdown",
+        "content": {
+          "degree": "Secondary (X)",
+          "field": "General",
+          "institution": "Dehradun Public School",
+          "location": "UttarPradesh, India",
+          "year": "2013 - 2014",
+          "grade": "9.8 CGPA",
+          "highlights": [
+            "Mathematics",
+            "Science",
+            "English"
+          ]
+        }
+      }
+    ]
+  }
+]

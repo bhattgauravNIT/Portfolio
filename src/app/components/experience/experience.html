@@ -1,0 +1,66 @@
+<div class="experience-card">
+  <div class="card-header">
+    <div class="header-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+      </svg>
+    </div>
+    <h3 class="header-title">{{ t('experience.title') }}</h3>
+    <span class="total-exp">{{ getTotalExperience() }} {{ t('experience.total') }}</span>
+  </div>
+
+  <div class="card-body">
+    <div class="experience-content">
+      <ul class="experience-list">
+        @for (exp of experiences; track exp.company; let last = $last) {
+          <li class="experience-item" [class.last]="last">
+            <div class="timeline-column">
+              <div class="company-logo">
+                <img [src]="exp.logo" [alt]="exp.company + ' logo'" class="logo-img" />
+              </div>
+              @if (!last) {
+                <div class="connector-line"></div>
+              }
+            </div>
+            <div class="experience-details">
+              <h4 class="role-title">{{ exp.role }}</h4>
+              <p class="company-name">{{ exp.company }} · {{ t('experience.fullTime') }}</p>
+              <p class="duration">{{ exp.startDate }} - {{ exp.endDate }} · {{ calculateDuration(exp.startDate, exp.endDate) }}</p>
+              <p class="location">{{ exp.location }}</p>
+            </div>
+          </li>
+        }
+      </ul>
+
+      <div class="experience-chart">
+        <h4 class="chart-title">{{ t('experience.chartTitle') }}</h4>
+        <div class="pie-chart-container">
+          <svg viewBox="0 0 200 200" class="pie-chart">
+            @for (item of chartData; track item.company) {
+              <path 
+                [attr.d]="item.pathData"
+                [attr.fill]="item.color"
+                class="pie-slice"
+              />
+            }
+            <circle cx="100" cy="100" r="45" class="pie-center" />
+          </svg>
+          <div class="pie-center-text">
+            <span class="center-value">{{ getTotalExperience() }}</span>
+            <span class="center-label">{{ t('experience.total') }}</span>
+          </div>
+        </div>
+        <div class="chart-legend">
+          @for (item of chartData; track item.company) {
+            <div class="legend-item">
+              <span class="legend-dot" [style.background]="item.color"></span>
+              <span class="legend-text">{{ item.shortName }}</span>
+              <span class="legend-duration">{{ item.duration }}</span>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

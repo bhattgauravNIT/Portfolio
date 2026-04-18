@@ -1,0 +1,60 @@
+.toggle-container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 16px 0;
+}
+
+.toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border: 1px solid var(--border-color);
+  background: var(--card-bg);
+  border-radius: 25px;
+  cursor: pointer;
+  color: var(--text-primary);
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px var(--shadow-color);
+
+  &:hover {
+    background: var(--accent-blue);
+    color: #fff;
+    border-color: var(--accent-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--shadow-color);
+
+    svg {
+      transform: rotate(15deg);
+    }
+  }
+
+  svg {
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+  }
+}
+
+.toggle-label {
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .toggle-container {
+    padding: 12px 0;
+    gap: 8px;
+  }
+
+  .toggle-btn {
+    padding: 8px 14px;
+    font-size: 13px;
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+}

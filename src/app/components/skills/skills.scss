@@ -1,0 +1,97 @@
+.skills-card {
+  background: var(--card-bg);
+  border-radius: 20px;
+  box-shadow: 0 1px 3px var(--shadow-color), 0 10px 40px var(--shadow-color);
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 1px 3px var(--shadow-color), 0 20px 50px var(--shadow-color);
+    border-color: var(--accent-blue);
+  }
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 24px;
+  background: var(--card-header-bg);
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.header-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-blue);
+}
+
+.header-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.card-body {
+  padding: 24px;
+  background: var(--card-bg);
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-chip {
+  display: inline-block;
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  cursor: default;
+  opacity: 0;
+  animation: fadeIn 0.3s ease forwards;
+  transition: all 0.2s ease;
+  letter-spacing: 0.3px;
+
+  &:hover {
+    background: var(--accent-blue);
+    color: #fff;
+    border-color: var(--accent-blue);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 120, 212, 0.3);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .card-body {
+    padding: 16px;
+  }
+
+  .skill-chip {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+}

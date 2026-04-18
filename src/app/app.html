@@ -1,0 +1,35 @@
+<app-side-nav (navToggled)="onNavToggled($event)"></app-side-nav>
+
+<main class="main-content" [class.nav-collapsed]="!isNavExpanded">
+  <section id="profile">
+    <app-profile-header></app-profile-header>
+  </section>
+
+  <app-theme-toggle></app-theme-toggle>
+
+  <section id="summary" class="content-section">
+    <app-professional-summary></app-professional-summary>
+  </section>
+
+  <section id="experience" class="content-section">
+    <app-experience></app-experience>
+  </section>
+
+  <section id="skills" class="content-section">
+    <app-skills></app-skills>
+  </section>
+
+  <section id="education" class="content-section">
+    <app-education></app-education>
+  </section>
+
+  <section id="contact" class="content-section">
+    <app-contact></app-contact>
+  </section>
+
+  <footer class="app-footer">
+    <p>© 2026 Gaurav Bhatt. All rights reserved.</p>
+  </footer>
+</main>
+
+<router-outlet></router-outlet>

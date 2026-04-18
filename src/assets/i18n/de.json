@@ -1,0 +1,44 @@
+{
+  "nav": {
+    "profile": "Profil",
+    "summary": "Zusammenfassung",
+    "experience": "Erfahrung",
+    "skills": "Fähigkeiten",
+    "education": "Ausbildung",
+    "projects": "Projekte",
+    "certifications": "Zertifizierungen",
+    "contact": "Kontakt"
+  },
+  "theme": {
+    "lightMode": "Hell",
+    "darkMode": "Dunkel"
+  },
+  "language": {
+    "english": "EN",
+    "german": "DE"
+  },
+  "profile": {
+    "title": "Senior Full Stack Entwickler",
+    "location": "Bengaluru, Indien"
+  },
+  "summary": {
+    "title": "Berufliche Zusammenfassung",
+    "content": "Full Stack Entwickler mit über 5,5 Jahren Erfahrung in Angular, Node.js, Express, MongoDB, JavaScript und TypeScript. Erfahren in der Entwicklung responsiver und barrierefreier Benutzeroberflächen, wiederverwendbarer Komponenten und intuitiver Workflows. Erfahren im Aufbau skalierbarer Backend-Systeme, sicherer RESTful APIs, Echtzeit-Lösungen und Microservices. Stark in Systemdesign, Datenstrukturen, Algorithmen und Full-Stack-Performance-Optimierung."
+  },
+  "experience": {
+    "title": "Erfahrung",
+    "total": "Gesamt",
+    "chartTitle": "Erfahrungsverteilung",
+    "fullTime": "Vollzeit",
+    "present": "Aktuell"
+  },
+  "skills": {
+    "title": "Fähigkeiten"
+  },
+  "sections": {
+    "education": "Ausbildung",
+    "projects": "Projekte",
+    "certifications": "Zertifizierungen",
+    "contact": "Kontakt"
+  }
+}

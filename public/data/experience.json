@@ -1,0 +1,20 @@
+[
+  {
+    "company": "Siemens",
+    "role": "Full Stack Developer",
+    "location": "Bengaluru, India",
+    "startDate": "May 2023",
+    "endDate": "Present",
+    "logo": "siemens.png",
+    "color": "#009999"
+  },
+  {
+    "company": "CGI",
+    "role": "Full Stack Developer",
+    "location": "Hyderabad, India",
+    "startDate": "Sep 2020",
+    "endDate": "May 2023",
+    "logo": "cgi.png",
+    "color": "#e91e63"
+  }
+]
