@@ -1,11 +1,20 @@
 [
   {
+    "company": "Halliburton",
+    "role": "Senior Full Stack Developer",
+    "location": "Bengaluru, India",
+    "startDate": "April 2026",
+    "endDate": "Present",
+    "logo": "images/halliburton.png",
+    "color": "#FFFFFF"
+  },
+  {
     "company": "Siemens",
     "role": "Full Stack Developer",
     "location": "Bengaluru, India",
     "startDate": "May 2023",
-    "endDate": "Present",
-    "logo": "siemens.png",
+    "endDate": "April 2026",
+    "logo": "images/siemens.png",
     "color": "#009999"
   },
   {
@@ -14,7 +23,7 @@
     "location": "Hyderabad, India",
     "startDate": "Sep 2020",
     "endDate": "May 2023",
-    "logo": "cgi.png",
+    "logo": "images/cgi.png",
     "color": "#e91e63"
   }
 ]

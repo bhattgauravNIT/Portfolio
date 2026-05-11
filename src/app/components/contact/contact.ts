@@ -335,8 +335,17 @@ export class ContactComponent implements OnInit, OnDestroy {
   }
 
   focusInput(): void {
-    if (this.inputField) {
-      this.inputField.nativeElement.focus();
+    if (!this.inputField) {
+      return;
+    }
+
+    // Avoid pulling the whole page to the contact section on app startup.
+    const inputEl = this.inputField.nativeElement as HTMLElement;
+    const rect = inputEl.getBoundingClientRect();
+    const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+
+    if (isVisible) {
+      inputEl.focus();
     }
   }
 

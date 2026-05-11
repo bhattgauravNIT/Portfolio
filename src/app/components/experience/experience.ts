@@ -107,11 +107,29 @@ export class ExperienceComponent implements OnInit, OnDestroy {
   }
 
   getShortName(company: string): string {
-    const shortNames: Record<string, string> = {
-      'Siemens': 'Siemens',
-      'CGI': 'CGI'
-    };
-    return shortNames[company] || company.split(' ')[0];
+    const normalized = company.trim();
+    if (!normalized) {
+      return '';
+    }
+
+    const words = normalized.split(/\s+/).filter(Boolean);
+
+    // Keep short names as-is for readability.
+    if (normalized.length <= 12) {
+      return normalized;
+    }
+
+    // Multi-word names become initials, for example: Tata Consultancy Services -> TCS.
+    if (words.length > 1) {
+      return words
+        .map((word) => word[0])
+        .join('')
+        .toUpperCase()
+        .slice(0, 4);
+    }
+
+    // Long single-word names are trimmed to keep legend compact.
+    return `${normalized.slice(0, 12)}...`;
   }
 
   getMonths(startDate: string, endDate: string): number {
@@ -124,10 +142,17 @@ export class ExperienceComponent implements OnInit, OnDestroy {
 
     const start = parseDate(startDate);
     const end = parseDate(endDate);
-    
+
     let months = (end.getFullYear() - start.getFullYear()) * 12;
-    months += end.getMonth() - start.getMonth() + 1;
-    return months;
+    months += end.getMonth() - start.getMonth();
+
+    // Use non-overlapping month ranges to avoid double-counting transition months
+    // between adjacent roles (for example, one role ending and another starting in May).
+    if (endDate !== 'Present' && months === 0) {
+      return 1;
+    }
+
+    return Math.max(months, 0);
   }
 
   getTotalExperience(): string {
@@ -135,12 +160,17 @@ export class ExperienceComponent implements OnInit, OnDestroy {
     const totalMonths = this.experiences.reduce((sum, exp) => {
       return sum + this.getMonths(exp.startDate, exp.endDate);
     }, 0);
-    
+
     const years = Math.floor(totalMonths / 12);
     const months = totalMonths % 12;
-    
-    if (months === 0) return `${years} yrs`;
-    return `${years}.${Math.round(months / 12 * 10)} yrs`;
+
+    if (years === 0) {
+      return `${months} mo${months !== 1 ? 's' : ''}`;
+    }
+    if (months === 0) {
+      return `${years} yr${years !== 1 ? 's' : ''}`;
+    }
+    return `${years} yr${years !== 1 ? 's' : ''} ${months} mo${months !== 1 ? 's' : ''}`;
   }
 
   calculateDuration(startDate: string, endDate: string): string {

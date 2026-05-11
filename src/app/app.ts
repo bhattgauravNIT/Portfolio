@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ProfileHeaderComponent } from './components/profile-header/profile-header';
 import { SideNavComponent } from './components/side-nav/side-nav';
@@ -15,8 +15,12 @@ import { ContactComponent } from './components/contact/contact';
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
-export class App {
+export class App implements OnInit {
   isNavExpanded = true;
+
+  ngOnInit(): void {
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  }
 
   onNavToggled(expanded: boolean) {
     this.isNavExpanded = expanded;
